@@ -1,0 +1,247 @@
+:root {
+  --bg: #0b1d17;
+  --card: rgba(255,255,255,0.08);
+  --text: #ffffff;
+  --sub: #cfd8dc;
+  --accent: #2ecc71;
+}
+
+body.light {
+  --bg: #f7fdfa;
+  --card: rgba(255,255,255,0.85);
+  --text: #0f2f25;
+  --sub: #4e6b63;
+  --accent: #18c48f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  transition: transform 0.4s ease;
+  z-index: 1000;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-actions button {
+  margin-left: 12px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--text);
+}
+
+.register-btn {
+  background: var(--accent);
+  color: #000;
+}
+
+.toggle-btn {
+  background: var(--card);
+}
+
+/* SCROLL SNAP */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.snap-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 120px 80px 40px;
+}
+
+.hero-text h1 {
+  font-size: 54px;
+}
+
+.hero-text span {
+  color: var(--accent);
+}
+
+.hero-text p {
+  margin-top: 20px;
+  color: var(--sub);
+  max-width: 520px;
+}
+
+/* ECO DASHBOARD */
+.eco-dashboard {
+  justify-self: center;
+  max-width: 420px;
+  background: linear-gradient(
+    135deg,
+    var(--card),
+    rgba(46, 204, 113, 0.12)
+  );
+  padding: 40px 50px;
+  border-radius: 32px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.eco-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.eco-grid strong {
+  font-size: 36px;
+  display: block;
+}
+
+.eco-note {
+  color: var(--sub);
+}
+
+/* FLOAT */
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ABOUT */
+.about {
+  padding: 120px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 42px;
+}
+
+.about p {
+  margin-top: 18px;
+  color: var(--sub);
+  line-height: 1.6;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.about-highlights div {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* FOOTER */
+.footer {
+  padding: 120px 20px 60px;
+  text-align: center;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  text-decoration: none;
+  color: var(--text);
+  background: var(--card);
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.socials a:hover {
+  transform: translateY(-4px);
+}
+
+footer {
+  color: var(--sub);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 120px 20px 40px;
+  }
+
+  .eco-dashboard {
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  .eco-grid {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .navbar {
+    padding: 16px 24px;
+  }
+}
